@@ -1,6 +1,10 @@
 const express = require('express');
 const app = express();
 
+
+app.use(express.json());
+app.use(express.urlencoded({extended:true}));
+
 app.set("view engine", 'ejs');
 
 // app.use((req, res, next) => {
@@ -22,6 +26,12 @@ app.get('/',(req,res,next)=>{
 app.get('/about', (req, res) => {
     res.send("this is about page");
 });
+
+app.post('/get-form-data',(req,res)=>{
+    console.log(req.body);
+    res.send("Data recieved");
+})
+
 
 app.listen(8000, () => {
     console.log('Express server running on http://localhost:8000');
