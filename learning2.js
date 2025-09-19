@@ -33,8 +33,25 @@ app.post('/get-form-data',async(req,res)=>{
         email:email,
         password:password
     })
-    
+
     res.send("user recieved");
+})
+
+
+// Basically Practising CRUD operations here
+app.get('/update',(req,res)=>{
+    userModel.find({
+        username:'hi'
+    }).then((users) => {
+        res.send(users);
+    })
+})
+app.get('/update',(req,res)=>{
+    userModel.findOne({
+        username:'john'
+    }).then((users)=>{
+        res.send(users);
+    })
 })
 
 
