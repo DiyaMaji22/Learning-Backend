@@ -1,6 +1,7 @@
 const express = require('express');
 const app = express();
-
+const userModel=require('./models/user')
+const dbConnection=require('./config/db')
 
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
@@ -20,13 +21,20 @@ app.get('/',(req, res) => {
     res.render('index');
 });
 
-app.get('/about', (req, res) => {
-    res.send("this is about page");
-});
+// app.get('/about', (req, res) => {
+//     res.send("this is about page");
+// });
 
-app.post('/get-form-data',(req,res)=>{
-    console.log(req.body);
-    res.send("Data recieved");
+app.post('/get-form-data',async(req,res)=>{
+    
+    const {username,email,password}=req.body;
+    const newuser=await userModel.create({
+        username:username,
+        email:email,
+        password:password
+    })
+    
+    res.send("user recieved");
 })
 
 
