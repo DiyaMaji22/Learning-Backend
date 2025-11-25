@@ -36,3 +36,11 @@ http.createServer((req,res)=>{
     console.log("The server is running on the port 3000");
 })
 
+var fun1=()=>{
+    console.log("Today is a good day");
+}
+var fun2=()=>{
+    console.log("Just another day");
+}
+
+Object.addListener(   )

@@ -11,6 +11,7 @@
 // readstream.pipe(gzip).pipe(writestream);
 
 // writestream.on('finish',()=>{
+    
 //     console.log("File successfully compressed");
 // })
 
